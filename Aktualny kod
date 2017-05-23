@@ -44,6 +44,12 @@ namespace Apka {
  
     private: AxWMPLib::AxWindowsMediaPlayer^  axWindowsMediaPlayer1;
     private: System::Windows::Forms::Button^  btnPause;
+ 
+    public: System::Windows::Forms::Timer^  ProgresTimer;
+    private:
+ 
+    public:
+    private: System::Windows::Forms::TrackBar^  trackBarProgress;
     public:
     private:
     private: System::ComponentModel::IContainer^  components;
@@ -64,12 +70,16 @@ namespace Apka {
         /// </summary>
         void InitializeComponent(void)
         {
+            this->components = (gcnew System::ComponentModel::Container());
             System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
             this->btnPlay = (gcnew System::Windows::Forms::Button());
             this->btnStop = (gcnew System::Windows::Forms::Button());
             this->axWindowsMediaPlayer1 = (gcnew AxWMPLib::AxWindowsMediaPlayer());
             this->btnPause = (gcnew System::Windows::Forms::Button());
+            this->ProgresTimer = (gcnew System::Windows::Forms::Timer(this->components));
+            this->trackBarProgress = (gcnew System::Windows::Forms::TrackBar());
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->axWindowsMediaPlayer1))->BeginInit();
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->trackBarProgress))->BeginInit();
             this->SuspendLayout();
             //
             // btnPlay
@@ -111,6 +121,21 @@ namespace Apka {
             this->btnPause->UseVisualStyleBackColor = true;
             this->btnPause->Click += gcnew System::EventHandler(this, &Form1::btnPause_Click);
             //
+            // ProgresTimer
+            //
+            this->ProgresTimer->Enabled = true;
+            this->ProgresTimer->Interval = 1;
+            this->ProgresTimer->Tick += gcnew System::EventHandler(this, &Form1::ProgresTimer_Tick);
+            //
+            // trackBarProgress
+            //
+            this->trackBarProgress->Location = System::Drawing::Point(30, 507);
+            this->trackBarProgress->Name = L"trackBarProgress";
+            this->trackBarProgress->Size = System::Drawing::Size(488, 56);
+            this->trackBarProgress->TabIndex = 6;
+            this->trackBarProgress->TickFrequency = 0;
+            this->trackBarProgress->Scroll += gcnew System::EventHandler(this, &Form1::trackBarProgress_Scroll);
+            //
             // Form1
             //
             this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -119,12 +144,15 @@ namespace Apka {
             this->Controls->Add(this->btnPause);
             this->Controls->Add(this->btnStop);
             this->Controls->Add(this->btnPlay);
+            this->Controls->Add(this->trackBarProgress);
             this->Controls->Add(this->axWindowsMediaPlayer1);
             this->Name = L"Form1";
             this->Text = L"Aplikacja";
             this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->axWindowsMediaPlayer1))->EndInit();
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->trackBarProgress))->EndInit();
             this->ResumeLayout(false);
+            this->PerformLayout();
  
         }
 #pragma endregion
@@ -141,5 +169,14 @@ private: System::Void btnStop_Click(System::Object^  sender, System::EventArgs^ 
 private: System::Void btnPause_Click(System::Object^  sender, System::EventArgs^  e) {
              axWindowsMediaPlayer1->Ctlcontrols->pause();
          }
+private: System::Void trackBarProgress_Scroll(System::Object^  sender, System::EventArgs^  e) {
+         }
+private: System::Void ProgresTimer_Tick(System::Object^  sender, System::EventArgs^  e) {
+            int Length = axWindowsMediaPlayer1->currentMedia->duration;
+            int Current = axWindowsMediaPlayer1->Ctlcontrols->currentPosition;
+            trackBarProgress->Maximum = Length;
+            trackBarProgress->Value = Current;
+         }
+ 
 };
 }
