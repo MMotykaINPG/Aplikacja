@@ -1,368 +1,432 @@
 #pragma once
-
+ 
 namespace Apka {
-
-	using namespace System;
-	using namespace System::ComponentModel;
-	using namespace System::Collections;
-	using namespace System::Windows::Forms;
-	using namespace System::Data;
-	using namespace System::Drawing;
-
-	/// <summary>
-	/// Summary for Form1
-	/// </summary>
-	public ref class Form1 : public System::Windows::Forms::Form
-	{
-	public:
-		Form1(void)
-		{
-			InitializeComponent();
-			//
-			//TODO: Add the constructor code here
-			//
-		}
-
-	protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
-		~Form1()
-		{
-			if (components)
-			{
-				delete components;
-			}
-		}
-
-	private: System::Windows::Forms::Button^  btnPlay;
-	private: System::Windows::Forms::Button^  btnStop;
-	private: System::Windows::Forms::Button^  btnPause;
-	private: System::Windows::Forms::TrackBar^  trackBarVolume;
-	private: System::Windows::Forms::Label^  labVolume;
-	private: System::Windows::Forms::TrackBar^  trackBarProgress;
-	public: System::Windows::Forms::Timer^  ProgresTimer;
-	private: AxWMPLib::AxWindowsMediaPlayer^  axWindowsMediaPlayer1;
-	private: System::Windows::Forms::Label^  labTimeLeft;
-	private: System::Windows::Forms::Button^  btnJumpBack;
-	private: System::Windows::Forms::Button^  btnJumpForward;
-	private: System::Windows::Forms::Button^  btnOpen;
-	private: System::Windows::Forms::OpenFileDialog^  openFileDialog1;
-	private: System::Windows::Forms::MenuStrip^  menuStrip1;
-	private: System::Windows::Forms::ToolStripMenuItem^  plikToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  otwórzToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  ustawieniaToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^  zamknijToolStripMenuItem;
-
-
-
-
-
-
-	public: 
-	private: 
-	private: System::ComponentModel::IContainer^  components;
-	public: 
-
-	protected: 
-
-	private:
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
-
-
+ 
+    using namespace System;
+    using namespace System::ComponentModel;
+    using namespace System::Collections;
+    using namespace System::Windows::Forms;
+    using namespace System::Data;
+    using namespace System::Drawing;
+ 
+    /// <summary>
+    /// Summary for Form1
+    /// </summary>
+    public ref class Form1 : public System::Windows::Forms::Form
+    {
+    public:
+        Form1(void)
+        {
+            InitializeComponent();
+            //
+            //TODO: Add the constructor code here
+            //
+        }
+ 
+    protected:
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        ~Form1()
+        {
+            if (components)
+            {
+                delete components;
+            }
+        }
+ 
+    private: System::Windows::Forms::Button^  btnPlay;
+    private: System::Windows::Forms::Button^  btnStop;
+    private: System::Windows::Forms::Button^  btnPause;
+    private: System::Windows::Forms::TrackBar^  trackBarVolume;
+    private: System::Windows::Forms::Label^  labVolume;
+    private: System::Windows::Forms::TrackBar^  trackBarProgress;
+    public: System::Windows::Forms::Timer^  ProgresTimer;
+    private: AxWMPLib::AxWindowsMediaPlayer^  axWindowsMediaPlayer1;
+    private: System::Windows::Forms::Label^  labTimeLeft;
+    private: System::Windows::Forms::Button^  btnJumpBack;
+    private: System::Windows::Forms::Button^  btnJumpForward;
+    private: System::Windows::Forms::Button^  btnOpen;
+    private: System::Windows::Forms::OpenFileDialog^  openFileDialog1;
+    private: System::Windows::Forms::MenuStrip^  menuStrip1;
+    private: System::Windows::Forms::ToolStripMenuItem^  plikToolStripMenuItem;
+    private: System::Windows::Forms::ToolStripMenuItem^  otwórzToolStripMenuItem;
+    private: System::Windows::Forms::ToolStripMenuItem^  ustawieniaToolStripMenuItem;
+    private: System::Windows::Forms::ToolStripMenuItem^  zamknijToolStripMenuItem;
+    private: System::Windows::Forms::ToolStripMenuItem^  playlistaToolStripMenuItem;
+ 
+ 
+ 
+    private: System::Windows::Forms::ToolStripMenuItem^  wyswietlanieToolStripMenuItem;
+    private: System::Windows::Forms::ToolStripMenuItem^  rozdzielczoscToolStripMenuItem;
+    private: System::Windows::Forms::ToolStripMenuItem^  x480ToolStripMenuItem;
+    private: System::Windows::Forms::ToolStripMenuItem^  x600ToolStripMenuItem;
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    public:
+    private:
+    private: System::ComponentModel::IContainer^  components;
+    public:
+ 
+    protected:
+ 
+    private:
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+ 
+ 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
-		void InitializeComponent(void)
-		{
-			this->components = (gcnew System::ComponentModel::Container());
-			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
-			this->btnPlay = (gcnew System::Windows::Forms::Button());
-			this->btnStop = (gcnew System::Windows::Forms::Button());
-			this->btnPause = (gcnew System::Windows::Forms::Button());
-			this->trackBarVolume = (gcnew System::Windows::Forms::TrackBar());
-			this->labVolume = (gcnew System::Windows::Forms::Label());
-			this->trackBarProgress = (gcnew System::Windows::Forms::TrackBar());
-			this->ProgresTimer = (gcnew System::Windows::Forms::Timer(this->components));
-			this->axWindowsMediaPlayer1 = (gcnew AxWMPLib::AxWindowsMediaPlayer());
-			this->labTimeLeft = (gcnew System::Windows::Forms::Label());
-			this->btnJumpBack = (gcnew System::Windows::Forms::Button());
-			this->btnJumpForward = (gcnew System::Windows::Forms::Button());
-			this->btnOpen = (gcnew System::Windows::Forms::Button());
-			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
-			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
-			this->plikToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->otwórzToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->ustawieniaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->zamknijToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->trackBarVolume))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->trackBarProgress))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->axWindowsMediaPlayer1))->BeginInit();
-			this->menuStrip1->SuspendLayout();
-			this->SuspendLayout();
-			// 
-			// btnPlay
-			// 
-			this->btnPlay->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
-			this->btnPlay->Location = System::Drawing::Point(13, 531);
-			this->btnPlay->Name = L"btnPlay";
-			this->btnPlay->Size = System::Drawing::Size(82, 40);
-			this->btnPlay->TabIndex = 1;
-			this->btnPlay->Text = L"Play";
-			this->btnPlay->UseVisualStyleBackColor = true;
-			this->btnPlay->Click += gcnew System::EventHandler(this, &Form1::btnPlay_Click);
-			// 
-			// btnStop
-			// 
-			this->btnStop->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
-			this->btnStop->Location = System::Drawing::Point(101, 531);
-			this->btnStop->Name = L"btnStop";
-			this->btnStop->Size = System::Drawing::Size(82, 40);
-			this->btnStop->TabIndex = 2;
-			this->btnStop->Text = L"Stop";
-			this->btnStop->UseVisualStyleBackColor = true;
-			this->btnStop->Click += gcnew System::EventHandler(this, &Form1::btnStop_Click);
-			// 
-			// btnPause
-			// 
-			this->btnPause->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
-			this->btnPause->Location = System::Drawing::Point(189, 531);
-			this->btnPause->Name = L"btnPause";
-			this->btnPause->Size = System::Drawing::Size(82, 40);
-			this->btnPause->TabIndex = 3;
-			this->btnPause->Text = L"Pause";
-			this->btnPause->UseVisualStyleBackColor = true;
-			this->btnPause->Click += gcnew System::EventHandler(this, &Form1::btnPause_Click);
-			// 
-			// trackBarVolume
-			// 
-			this->trackBarVolume->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
-			this->trackBarVolume->Location = System::Drawing::Point(541, 515);
-			this->trackBarVolume->Maximum = 100;
-			this->trackBarVolume->Name = L"trackBarVolume";
-			this->trackBarVolume->Size = System::Drawing::Size(100, 56);
-			this->trackBarVolume->TabIndex = 4;
-			this->trackBarVolume->TickFrequency = 10;
-			this->trackBarVolume->Value = 50;
-			this->trackBarVolume->Scroll += gcnew System::EventHandler(this, &Form1::trackBarVolume_Scroll);
-			// 
-			// labVolume
-			// 
-			this->labVolume->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
-			this->labVolume->AutoSize = true;
-			this->labVolume->Location = System::Drawing::Point(564, 549);
-			this->labVolume->Name = L"labVolume";
-			this->labVolume->Size = System::Drawing::Size(55, 17);
-			this->labVolume->TabIndex = 5;
-			this->labVolume->Text = L"Volume";
-			this->labVolume->Click += gcnew System::EventHandler(this, &Form1::label1_Click);
-			// 
-			// trackBarProgress
-			// 
-			this->trackBarProgress->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left) 
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->trackBarProgress->Location = System::Drawing::Point(1, 504);
-			this->trackBarProgress->Name = L"trackBarProgress";
-			this->trackBarProgress->Size = System::Drawing::Size(488, 56);
-			this->trackBarProgress->TabIndex = 6;
-			this->trackBarProgress->TickFrequency = 0;
-			this->trackBarProgress->Scroll += gcnew System::EventHandler(this, &Form1::trackBarProgress_Scroll);
-			// 
-			// ProgresTimer
-			// 
-			this->ProgresTimer->Enabled = true;
-			this->ProgresTimer->Interval = 1;
-			this->ProgresTimer->Tick += gcnew System::EventHandler(this, &Form1::ProgresTimer_Tick);
-			// 
-			// axWindowsMediaPlayer1
-			// 
-			this->axWindowsMediaPlayer1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom) 
-				| System::Windows::Forms::AnchorStyles::Left) 
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->axWindowsMediaPlayer1->Enabled = true;
-			this->axWindowsMediaPlayer1->Location = System::Drawing::Point(1, 22);
-			this->axWindowsMediaPlayer1->Name = L"axWindowsMediaPlayer1";
-			this->axWindowsMediaPlayer1->OcxState = (cli::safe_cast<System::Windows::Forms::AxHost::State^  >(resources->GetObject(L"axWindowsMediaPlayer1.OcxState")));
-			this->axWindowsMediaPlayer1->Size = System::Drawing::Size(640, 480);
-			this->axWindowsMediaPlayer1->TabIndex = 0;
-			// 
-			// labTimeLeft
-			// 
-			this->labTimeLeft->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
-			this->labTimeLeft->AutoSize = true;
-			this->labTimeLeft->Location = System::Drawing::Point(489, 505);
-			this->labTimeLeft->Name = L"labTimeLeft";
-			this->labTimeLeft->Size = System::Drawing::Size(56, 17);
-			this->labTimeLeft->TabIndex = 7;
-			this->labTimeLeft->Text = L"0:00:00";
-			this->labTimeLeft->Click += gcnew System::EventHandler(this, &Form1::label1_Click_1);
-			// 
-			// btnJumpBack
-			// 
-			this->btnJumpBack->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
-			this->btnJumpBack->Location = System::Drawing::Point(277, 548);
-			this->btnJumpBack->Name = L"btnJumpBack";
-			this->btnJumpBack->Size = System::Drawing::Size(75, 23);
-			this->btnJumpBack->TabIndex = 8;
-			this->btnJumpBack->Text = L"<-";
-			this->btnJumpBack->UseVisualStyleBackColor = true;
-			this->btnJumpBack->Click += gcnew System::EventHandler(this, &Form1::btnJumpBack_Click);
-			// 
-			// btnJumpForward
-			// 
-			this->btnJumpForward->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
-			this->btnJumpForward->Location = System::Drawing::Point(358, 548);
-			this->btnJumpForward->Name = L"btnJumpForward";
-			this->btnJumpForward->Size = System::Drawing::Size(75, 23);
-			this->btnJumpForward->TabIndex = 9;
-			this->btnJumpForward->Text = L"->";
-			this->btnJumpForward->UseVisualStyleBackColor = true;
-			this->btnJumpForward->Click += gcnew System::EventHandler(this, &Form1::btnJumpForward_Click);
-			// 
-			// btnOpen
-			// 
-			this->btnOpen->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
-			this->btnOpen->Location = System::Drawing::Point(439, 531);
-			this->btnOpen->Name = L"btnOpen";
-			this->btnOpen->Size = System::Drawing::Size(82, 40);
-			this->btnOpen->TabIndex = 10;
-			this->btnOpen->Text = L"Open";
-			this->btnOpen->UseVisualStyleBackColor = true;
-			this->btnOpen->Click += gcnew System::EventHandler(this, &Form1::btnOpen_Click);
-			// 
-			// openFileDialog1
-			// 
-			this->openFileDialog1->FileName = L"openFileDialog1";
-			this->openFileDialog1->FileOk += gcnew System::ComponentModel::CancelEventHandler(this, &Form1::openFileDialog1_FileOk);
-			// 
-			// menuStrip1
-			// 
-			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {this->plikToolStripMenuItem, 
-				this->playlistaToolStripMenuItem, this->pomocToolStripMenuItem, this->wyswietlanieToolStripMenuItem});
-			this->menuStrip1->Location = System::Drawing::Point(0, 0);
-			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(642, 28);
-			this->menuStrip1->TabIndex = 11;
-			this->menuStrip1->Text = L"menuStrip1";
-			// 
-			// plikToolStripMenuItem
-			// 
-			this->plikToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {this->otwórzToolStripMenuItem, 
-				this->ustawieniaToolStripMenuItem, this->zamknijToolStripMenuItem});
-			this->plikToolStripMenuItem->Name = L"plikToolStripMenuItem";
-			this->plikToolStripMenuItem->Size = System::Drawing::Size(44, 24);
-			this->plikToolStripMenuItem->Text = L"Plik";
-			// 
-			// otwórzToolStripMenuItem
-			// 
-			this->otwórzToolStripMenuItem->Name = L"otwórzToolStripMenuItem";
-			this->otwórzToolStripMenuItem->Size = System::Drawing::Size(150, 24);
-			this->otwórzToolStripMenuItem->Text = L"Otwórz";
-			this->otwórzToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::otwórzToolStripMenuItem_Click);
-			// 
-			// ustawieniaToolStripMenuItem
-			// 
-			this->ustawieniaToolStripMenuItem->Name = L"ustawieniaToolStripMenuItem";
-			this->ustawieniaToolStripMenuItem->Size = System::Drawing::Size(150, 24);
-			this->ustawieniaToolStripMenuItem->Text = L"Ustawienia";
-			// 
-			// zamknijToolStripMenuItem
-			// 
-			this->zamknijToolStripMenuItem->Name = L"zamknijToolStripMenuItem";
-			this->zamknijToolStripMenuItem->Size = System::Drawing::Size(150, 24);
-			this->zamknijToolStripMenuItem->Text = L"Zamknij";
-			this->zamknijToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::zamknijToolStripMenuItem_Click);
-			// 
-			// Form1
-			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
-			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"$this.BackgroundImage")));
-			this->ClientSize = System::Drawing::Size(642, 575);
-			this->Controls->Add(this->btnOpen);
-			this->Controls->Add(this->btnJumpForward);
-			this->Controls->Add(this->btnJumpBack);
-			this->Controls->Add(this->labTimeLeft);
-			this->Controls->Add(this->btnPause);
-			this->Controls->Add(this->btnStop);
-			this->Controls->Add(this->btnPlay);
-			this->Controls->Add(this->trackBarProgress);
-			this->Controls->Add(this->labVolume);
-			this->Controls->Add(this->trackBarVolume);
-			this->Controls->Add(this->axWindowsMediaPlayer1);
-			this->Controls->Add(this->menuStrip1);
-			this->MainMenuStrip = this->menuStrip1;
-			this->Name = L"Form1";
-			this->Text = L"Aplikacja";
-			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->trackBarVolume))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->trackBarProgress))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->axWindowsMediaPlayer1))->EndInit();
-			this->menuStrip1->ResumeLayout(false);
-			this->menuStrip1->PerformLayout();
-			this->ResumeLayout(false);
-			this->PerformLayout();
-
-		}
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        void InitializeComponent(void)
+        {
+            this->components = (gcnew System::ComponentModel::Container());
+            System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
+            this->btnPlay = (gcnew System::Windows::Forms::Button());
+            this->btnStop = (gcnew System::Windows::Forms::Button());
+            this->btnPause = (gcnew System::Windows::Forms::Button());
+            this->trackBarVolume = (gcnew System::Windows::Forms::TrackBar());
+            this->labVolume = (gcnew System::Windows::Forms::Label());
+            this->trackBarProgress = (gcnew System::Windows::Forms::TrackBar());
+            this->ProgresTimer = (gcnew System::Windows::Forms::Timer(this->components));
+            this->axWindowsMediaPlayer1 = (gcnew AxWMPLib::AxWindowsMediaPlayer());
+            this->labTimeLeft = (gcnew System::Windows::Forms::Label());
+            this->btnJumpBack = (gcnew System::Windows::Forms::Button());
+            this->btnJumpForward = (gcnew System::Windows::Forms::Button());
+            this->btnOpen = (gcnew System::Windows::Forms::Button());
+            this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
+            this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+            this->plikToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+            this->otwórzToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+            this->ustawieniaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+            this->zamknijToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+            this->playlistaToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+            this->pomocToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+            this->oProgramieToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+            this->wyswietlanieToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+            this->rozdzielczoscToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+            this->x480ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+            this->x600ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+            this->x720ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+            this->x1080ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->trackBarVolume))->BeginInit();
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->trackBarProgress))->BeginInit();
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->axWindowsMediaPlayer1))->BeginInit();
+            this->menuStrip1->SuspendLayout();
+            this->SuspendLayout();
+            //
+            // btnPlay
+            //
+            this->btnPlay->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
+            this->btnPlay->Location = System::Drawing::Point(13, 531);
+            this->btnPlay->Name = L"btnPlay";
+            this->btnPlay->Size = System::Drawing::Size(82, 40);
+            this->btnPlay->TabIndex = 1;
+            this->btnPlay->Text = L"Play";
+            this->btnPlay->UseVisualStyleBackColor = true;
+            this->btnPlay->Click += gcnew System::EventHandler(this, &Form1::btnPlay_Click);
+            //
+            // btnStop
+            //
+            this->btnStop->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
+            this->btnStop->Location = System::Drawing::Point(101, 531);
+            this->btnStop->Name = L"btnStop";
+            this->btnStop->Size = System::Drawing::Size(82, 40);
+            this->btnStop->TabIndex = 2;
+            this->btnStop->Text = L"Stop";
+            this->btnStop->UseVisualStyleBackColor = true;
+            this->btnStop->Click += gcnew System::EventHandler(this, &Form1::btnStop_Click);
+            //
+            // btnPause
+            //
+            this->btnPause->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
+            this->btnPause->Location = System::Drawing::Point(189, 531);
+            this->btnPause->Name = L"btnPause";
+            this->btnPause->Size = System::Drawing::Size(82, 40);
+            this->btnPause->TabIndex = 3;
+            this->btnPause->Text = L"Pause";
+            this->btnPause->UseVisualStyleBackColor = true;
+            this->btnPause->Click += gcnew System::EventHandler(this, &Form1::btnPause_Click);
+            //
+            // trackBarVolume
+            //
+            this->trackBarVolume->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+            this->trackBarVolume->Location = System::Drawing::Point(541, 515);
+            this->trackBarVolume->Maximum = 100;
+            this->trackBarVolume->Name = L"trackBarVolume";
+            this->trackBarVolume->Size = System::Drawing::Size(100, 56);
+            this->trackBarVolume->TabIndex = 4;
+            this->trackBarVolume->TickFrequency = 10;
+            this->trackBarVolume->Value = 50;
+            this->trackBarVolume->Scroll += gcnew System::EventHandler(this, &Form1::trackBarVolume_Scroll);
+            //
+            // labVolume
+            //
+            this->labVolume->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+            this->labVolume->AutoSize = true;
+            this->labVolume->Location = System::Drawing::Point(564, 549);
+            this->labVolume->Name = L"labVolume";
+            this->labVolume->Size = System::Drawing::Size(55, 17);
+            this->labVolume->TabIndex = 5;
+            this->labVolume->Text = L"Volume";
+            this->labVolume->Click += gcnew System::EventHandler(this, &Form1::label1_Click);
+            //
+            // trackBarProgress
+            //
+            this->trackBarProgress->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
+            this->trackBarProgress->Location = System::Drawing::Point(1, 504);
+            this->trackBarProgress->Name = L"trackBarProgress";
+            this->trackBarProgress->Size = System::Drawing::Size(488, 56);
+            this->trackBarProgress->TabIndex = 6;
+            this->trackBarProgress->TickFrequency = 0;
+            this->trackBarProgress->Scroll += gcnew System::EventHandler(this, &Form1::trackBarProgress_Scroll);
+            //
+            // ProgresTimer
+            //
+            this->ProgresTimer->Enabled = true;
+            this->ProgresTimer->Interval = 1;
+            this->ProgresTimer->Tick += gcnew System::EventHandler(this, &Form1::ProgresTimer_Tick);
+            //
+            // axWindowsMediaPlayer1
+            //
+            this->axWindowsMediaPlayer1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+                | System::Windows::Forms::AnchorStyles::Left)
+                | System::Windows::Forms::AnchorStyles::Right));
+            this->axWindowsMediaPlayer1->Enabled = true;
+            this->axWindowsMediaPlayer1->Location = System::Drawing::Point(1, 22);
+            this->axWindowsMediaPlayer1->Name = L"axWindowsMediaPlayer1";
+            this->axWindowsMediaPlayer1->OcxState = (cli::safe_cast<System::Windows::Forms::AxHost::State^  >(resources->GetObject(L"axWindowsMediaPlayer1.OcxState")));
+            this->axWindowsMediaPlayer1->Size = System::Drawing::Size(640, 480);
+            this->axWindowsMediaPlayer1->TabIndex = 0;
+            //
+            // labTimeLeft
+            //
+            this->labTimeLeft->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+            this->labTimeLeft->AutoSize = true;
+            this->labTimeLeft->Location = System::Drawing::Point(489, 505);
+            this->labTimeLeft->Name = L"labTimeLeft";
+            this->labTimeLeft->Size = System::Drawing::Size(56, 17);
+            this->labTimeLeft->TabIndex = 7;
+            this->labTimeLeft->Text = L"0:00:00";
+            this->labTimeLeft->Click += gcnew System::EventHandler(this, &Form1::label1_Click_1);
+            //
+            // btnJumpBack
+            //
+            this->btnJumpBack->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+            this->btnJumpBack->Location = System::Drawing::Point(277, 548);
+            this->btnJumpBack->Name = L"btnJumpBack";
+            this->btnJumpBack->Size = System::Drawing::Size(75, 23);
+            this->btnJumpBack->TabIndex = 8;
+            this->btnJumpBack->Text = L"<-";
+            this->btnJumpBack->UseVisualStyleBackColor = true;
+            this->btnJumpBack->Click += gcnew System::EventHandler(this, &Form1::btnJumpBack_Click);
+            //
+            // btnJumpForward
+            //
+            this->btnJumpForward->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+            this->btnJumpForward->Location = System::Drawing::Point(358, 548);
+            this->btnJumpForward->Name = L"btnJumpForward";
+            this->btnJumpForward->Size = System::Drawing::Size(75, 23);
+            this->btnJumpForward->TabIndex = 9;
+            this->btnJumpForward->Text = L"->";
+            this->btnJumpForward->UseVisualStyleBackColor = true;
+            this->btnJumpForward->Click += gcnew System::EventHandler(this, &Form1::btnJumpForward_Click);
+            //
+            // btnOpen
+            //
+            this->btnOpen->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Right));
+            this->btnOpen->Location = System::Drawing::Point(439, 531);
+            this->btnOpen->Name = L"btnOpen";
+            this->btnOpen->Size = System::Drawing::Size(82, 40);
+            this->btnOpen->TabIndex = 10;
+            this->btnOpen->Text = L"Open";
+            this->btnOpen->UseVisualStyleBackColor = true;
+            this->btnOpen->Click += gcnew System::EventHandler(this, &Form1::btnOpen_Click);
+            //
+            // openFileDialog1
+            //
+            this->openFileDialog1->FileName = L"openFileDialog1";
+            this->openFileDialog1->FileOk += gcnew System::ComponentModel::CancelEventHandler(this, &Form1::openFileDialog1_FileOk);
+            //
+            // menuStrip1
+            //
+            this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {this->plikToolStripMenuItem,
+                this->playlistaToolStripMenuItem, this->pomocToolStripMenuItem, this->wyswietlanieToolStripMenuItem});
+            this->menuStrip1->Location = System::Drawing::Point(0, 0);
+            this->menuStrip1->Name = L"menuStrip1";
+            this->menuStrip1->Size = System::Drawing::Size(642, 28);
+            this->menuStrip1->TabIndex = 11;
+            this->menuStrip1->Text = L"menuStrip1";
+            //
+            // plikToolStripMenuItem
+            //
+            this->plikToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {this->otwórzToolStripMenuItem,
+                this->ustawieniaToolStripMenuItem, this->zamknijToolStripMenuItem});
+            this->plikToolStripMenuItem->Name = L"plikToolStripMenuItem";
+            this->plikToolStripMenuItem->Size = System::Drawing::Size(44, 24);
+            this->plikToolStripMenuItem->Text = L"Plik";
+            //
+            // otwórzToolStripMenuItem
+            //
+            this->otwórzToolStripMenuItem->Name = L"otwórzToolStripMenuItem";
+            this->otwórzToolStripMenuItem->Size = System::Drawing::Size(150, 24);
+            this->otwórzToolStripMenuItem->Text = L"Otwórz";
+            this->otwórzToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::otwórzToolStripMenuItem_Click);
+            //
+            // ustawieniaToolStripMenuItem
+            //
+            this->ustawieniaToolStripMenuItem->Name = L"ustawieniaToolStripMenuItem";
+            this->ustawieniaToolStripMenuItem->Size = System::Drawing::Size(150, 24);
+            this->ustawieniaToolStripMenuItem->Text = L"Ustawienia";
+            //
+            // zamknijToolStripMenuItem
+            //
+            this->zamknijToolStripMenuItem->Name = L"zamknijToolStripMenuItem";
+            this->zamknijToolStripMenuItem->Size = System::Drawing::Size(150, 24);
+            this->zamknijToolStripMenuItem->Text = L"Zamknij";
+            this->zamknijToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::zamknijToolStripMenuItem_Click);
+            //
+            // playlistaToolStripMenuItem
+            //
+            this->playlistaToolStripMenuItem->Name = L"playlistaToolStripMenuItem";
+            this->playlistaToolStripMenuItem->Size = System::Drawing::Size(75, 24);
+            this->playlistaToolStripMenuItem->Text = L"Playlista";
+            //
+            // wyswietlanieToolStripMenuItem
+            //
+            this->wyswietlanieToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) {this->rozdzielczoscToolStripMenuItem});
+            this->wyswietlanieToolStripMenuItem->Name = L"wyswietlanieToolStripMenuItem";
+            this->wyswietlanieToolStripMenuItem->Size = System::Drawing::Size(108, 24);
+            this->wyswietlanieToolStripMenuItem->Text = L"Wyswietlanie";
+            //
+            // rozdzielczoscToolStripMenuItem
+            //
+            this->rozdzielczoscToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {this->x480ToolStripMenuItem,
+                this->x600ToolStripMenuItem, this->x720ToolStripMenuItem, this->x1080ToolStripMenuItem});
+            this->rozdzielczoscToolStripMenuItem->Name = L"rozdzielczoscToolStripMenuItem";
+            this->rozdzielczoscToolStripMenuItem->Size = System::Drawing::Size(171, 24);
+            this->rozdzielczoscToolStripMenuItem->Text = L"Rozdzielczosc";
+            //
+            // x480ToolStripMenuItem
+            //
+            this->x480ToolStripMenuItem->Name = L"x480ToolStripMenuItem";
+            this->x480ToolStripMenuItem->Size = System::Drawing::Size(149, 24);
+            this->x480ToolStripMenuItem->Text = L"640x480";
+            this->x480ToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::x480ToolStripMenuItem_Click);
+            //
+            // x600ToolStripMenuItem
+            //
+            this->x600ToolStripMenuItem->Name = L"x600ToolStripMenuItem";
+            this->x600ToolStripMenuItem->Size = System::Drawing::Size(149, 24);
+            this->x600ToolStripMenuItem->Text = L"800x600";
+            this->x600ToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::x600ToolStripMenuItem_Click);
+            //
+            // Form1
+            //
+            this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+            this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+            this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"$this.BackgroundImage")));
+            this->ClientSize = System::Drawing::Size(642, 575);
+            this->Controls->Add(this->btnOpen);
+            this->Controls->Add(this->btnJumpForward);
+            this->Controls->Add(this->btnJumpBack);
+            this->Controls->Add(this->labTimeLeft);
+            this->Controls->Add(this->btnPause);
+            this->Controls->Add(this->btnStop);
+            this->Controls->Add(this->btnPlay);
+            this->Controls->Add(this->trackBarProgress);
+            this->Controls->Add(this->labVolume);
+            this->Controls->Add(this->trackBarVolume);
+            this->Controls->Add(this->axWindowsMediaPlayer1);
+            this->Controls->Add(this->menuStrip1);
+            this->MainMenuStrip = this->menuStrip1;
+            this->Name = L"Form1";
+            this->Text = L"Aplikacja";
+            this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->trackBarVolume))->EndInit();
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->trackBarProgress))->EndInit();
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->axWindowsMediaPlayer1))->EndInit();
+            this->menuStrip1->ResumeLayout(false);
+            this->menuStrip1->PerformLayout();
+            this->ResumeLayout(false);
+            this->PerformLayout();
+ 
+        }
 #pragma endregion
-
-
+ 
+ 
 private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) {
-		 }
+         }
 private: System::Void trackBarVolume_Scroll(System::Object^  sender, System::EventArgs^  e) {
-			axWindowsMediaPlayer1->settings->volume = trackBarVolume->Value;
-		 }
+            axWindowsMediaPlayer1->settings->volume = trackBarVolume->Value;
+         }
 private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
-		 }
+         }
 private: System::Void btnPlay_Click(System::Object^  sender, System::EventArgs^  e) {
-			 axWindowsMediaPlayer1->Ctlcontrols->play();
-		 }
+             axWindowsMediaPlayer1->Ctlcontrols->play();
+         }
 private: System::Void btnStop_Click(System::Object^  sender, System::EventArgs^  e) {
-			 axWindowsMediaPlayer1->Ctlcontrols->stop();
-		 }
+             axWindowsMediaPlayer1->Ctlcontrols->stop();
+         }
 private: System::Void btnPause_Click(System::Object^  sender, System::EventArgs^  e) {
-			 axWindowsMediaPlayer1->Ctlcontrols->pause();
-		 }
+             axWindowsMediaPlayer1->Ctlcontrols->pause();
+         }
 private: System::Void trackBarProgress_Scroll(System::Object^  sender, System::EventArgs^  e) {
-
-		 }
+ 
+         }
 private: System::Void label1_Click_1(System::Object^  sender, System::EventArgs^  e) {
-		
-		 }
+       
+         }
 private: System::Void ProgresTimer_Tick(System::Object^  sender, System::EventArgs^  e) {
-			int Length = axWindowsMediaPlayer1->currentMedia->duration;
-			int Current = axWindowsMediaPlayer1->Ctlcontrols->currentPosition;
-			trackBarProgress->Maximum = Length;
-			trackBarProgress->Value = Current;
-			int Lef = Length-Current;
-			labTimeLeft->Text = Lef.ToString();
-		 }
+            int Length = axWindowsMediaPlayer1->currentMedia->duration;
+            int Current = axWindowsMediaPlayer1->Ctlcontrols->currentPosition;
+            trackBarProgress->Maximum = Length;
+            trackBarProgress->Value = Current;
+            int Lef = Length-Current;
+            labTimeLeft->Text = Lef.ToString();
+         }
 private: System::Void btnJumpBack_Click(System::Object^  sender, System::EventArgs^  e) {
-			 axWindowsMediaPlayer1->Ctlcontrols->currentPosition-=10;
-		 }
+             axWindowsMediaPlayer1->Ctlcontrols->currentPosition-=10;
+         }
 private: System::Void btnJumpForward_Click(System::Object^  sender, System::EventArgs^  e) {
-			 axWindowsMediaPlayer1->Ctlcontrols->currentPosition+=10;
-		 }
-
+             axWindowsMediaPlayer1->Ctlcontrols->currentPosition+=10;
+         }
+ 
 private: System::Void btnOpen_Click(System::Object^  sender, System::EventArgs^  e) {
-			 openFileDialog1->ShowDialog();
-			 axWindowsMediaPlayer1->URL = (openFileDialog1->FileName);
-		 }
+             openFileDialog1->ShowDialog();
+             axWindowsMediaPlayer1->URL = (openFileDialog1->FileName);
+         }
 private: System::Void openFileDialog1_FileOk(System::Object^  sender, System::ComponentModel::CancelEventArgs^  e) {
-		 }
-
+         }
+ 
 private: System::Void otwórzToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
-			 openFileDialog1->ShowDialog();
-			 axWindowsMediaPlayer1->URL = (openFileDialog1->FileName);
-		 }
+             openFileDialog1->ShowDialog();
+             axWindowsMediaPlayer1->URL = (openFileDialog1->FileName);
+         }
 private: System::Void zamknijToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
-			MessageBox::Show("Nastąpi zamknięcie programu");
-			Form1::Close();
-		 }
+            MessageBox::Show("Nastąpi zamknięcie programu");
+            Form1::Close();
+         }
+private: System::Void x480ToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+             this->Size = System::Drawing::Size( (640*1.03125),(480*1.292) );
+             axWindowsMediaPlayer1->Width = 640;
+             axWindowsMediaPlayer1->Height = 480;
+         }
+private: System::Void x600ToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+             this->Size = System::Drawing::Size( (800*1.03125),(600*1.291) );
+             axWindowsMediaPlayer1->Width = 800;
+             axWindowsMediaPlayer1->Height = 600;
+         }
 };
 }
-
