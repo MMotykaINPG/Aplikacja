@@ -57,11 +57,15 @@ namespace Apka {
  
  
  
+ 
+    private: System::Windows::Forms::ToolStripMenuItem^  pomocToolStripMenuItem;
+    private: System::Windows::Forms::ToolStripMenuItem^  oProgramieToolStripMenuItem;
     private: System::Windows::Forms::ToolStripMenuItem^  wyswietlanieToolStripMenuItem;
     private: System::Windows::Forms::ToolStripMenuItem^  rozdzielczoscToolStripMenuItem;
     private: System::Windows::Forms::ToolStripMenuItem^  x480ToolStripMenuItem;
     private: System::Windows::Forms::ToolStripMenuItem^  x600ToolStripMenuItem;
-   
+    private: System::Windows::Forms::ToolStripMenuItem^  x720ToolStripMenuItem;
+    private: System::Windows::Forms::ToolStripMenuItem^  x1080ToolStripMenuItem;
  
  
  
@@ -303,6 +307,19 @@ namespace Apka {
             this->playlistaToolStripMenuItem->Size = System::Drawing::Size(75, 24);
             this->playlistaToolStripMenuItem->Text = L"Playlista";
             //
+            // pomocToolStripMenuItem
+            //
+            this->pomocToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) {this->oProgramieToolStripMenuItem});
+            this->pomocToolStripMenuItem->Name = L"pomocToolStripMenuItem";
+            this->pomocToolStripMenuItem->Size = System::Drawing::Size(67, 24);
+            this->pomocToolStripMenuItem->Text = L"Pomoc";
+            //
+            // oProgramieToolStripMenuItem
+            //
+            this->oProgramieToolStripMenuItem->Name = L"oProgramieToolStripMenuItem";
+            this->oProgramieToolStripMenuItem->Size = System::Drawing::Size(162, 24);
+            this->oProgramieToolStripMenuItem->Text = L"O Programie";
+            //
             // wyswietlanieToolStripMenuItem
             //
             this->wyswietlanieToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) {this->rozdzielczoscToolStripMenuItem});
@@ -321,22 +338,35 @@ namespace Apka {
             // x480ToolStripMenuItem
             //
             this->x480ToolStripMenuItem->Name = L"x480ToolStripMenuItem";
-            this->x480ToolStripMenuItem->Size = System::Drawing::Size(149, 24);
+            this->x480ToolStripMenuItem->Size = System::Drawing::Size(152, 24);
             this->x480ToolStripMenuItem->Text = L"640x480";
             this->x480ToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::x480ToolStripMenuItem_Click);
             //
             // x600ToolStripMenuItem
             //
             this->x600ToolStripMenuItem->Name = L"x600ToolStripMenuItem";
-            this->x600ToolStripMenuItem->Size = System::Drawing::Size(149, 24);
+            this->x600ToolStripMenuItem->Size = System::Drawing::Size(152, 24);
             this->x600ToolStripMenuItem->Text = L"800x600";
             this->x600ToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::x600ToolStripMenuItem_Click);
+            //
+            // x720ToolStripMenuItem
+            //
+            this->x720ToolStripMenuItem->Name = L"x720ToolStripMenuItem";
+            this->x720ToolStripMenuItem->Size = System::Drawing::Size(152, 24);
+            this->x720ToolStripMenuItem->Text = L"1280x720";
+            this->x720ToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::x720ToolStripMenuItem_Click);
+            //
+            // x1080ToolStripMenuItem
+            //
+            this->x1080ToolStripMenuItem->Name = L"x1080ToolStripMenuItem";
+            this->x1080ToolStripMenuItem->Size = System::Drawing::Size(152, 24);
+            this->x1080ToolStripMenuItem->Text = L"1920x1080";
+            this->x1080ToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::x1080ToolStripMenuItem_Click);
             //
             // Form1
             //
             this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
             this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-            this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"$this.BackgroundImage")));
             this->ClientSize = System::Drawing::Size(642, 575);
             this->Controls->Add(this->btnOpen);
             this->Controls->Add(this->btnJumpForward);
@@ -427,6 +457,16 @@ private: System::Void x600ToolStripMenuItem_Click(System::Object^  sender, Syste
              this->Size = System::Drawing::Size( (800*1.03125),(600*1.291) );
              axWindowsMediaPlayer1->Width = 800;
              axWindowsMediaPlayer1->Height = 600;
+         }
+private: System::Void x720ToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+             this->Size = System::Drawing::Size( (1280*1.03125),(720*1.291) );
+             axWindowsMediaPlayer1->Width = 1280;
+             axWindowsMediaPlayer1->Height = 720;
+         }
+private: System::Void x1080ToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+             this->Size = System::Drawing::Size( (1920*1.03125),(1080*1.291) );
+             axWindowsMediaPlayer1->Width = 1920;
+             axWindowsMediaPlayer1->Height = 1080;
          }
 };
 }
